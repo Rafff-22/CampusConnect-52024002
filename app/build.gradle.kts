@@ -6,13 +6,13 @@ plugins {
 android {
     namespace = "com.kharisma.campusconnect"
     compileSdk {
-        version = release(37)
+        version = release(36)
     }
 
     defaultConfig {
         applicationId = "com.kharisma.campusconnect"
         minSdk = 26
-        targetSdk = 37
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
@@ -37,6 +37,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":shared"))
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.compose.material3)

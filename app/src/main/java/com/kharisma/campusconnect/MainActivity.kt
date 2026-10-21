@@ -7,15 +7,15 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import com.kharisma.campusconnect.shared.CourseRepositoryImpl
 import com.kharisma.campusconnect.ui.theme.CampusConnectTheme
-import com.kharisma.campusconnect.data.daftarMataKuliahDummy
 import com.kharisma.campusconnect.ui.HomeScreen
 
 class MainActivity : ComponentActivity() {
+    private val repository = CourseRepositoryImpl()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -23,7 +23,7 @@ class MainActivity : ComponentActivity() {
             CampusConnectTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     HomeScreen(
-                        daftarMK = daftarMataKuliahDummy,
+                        daftarMK = repository.getAllCourses(),
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
