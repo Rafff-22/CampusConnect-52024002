@@ -9,23 +9,19 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.kharisma.campusconnect.shared.CourseRepositoryImpl
+import com.kharisma.campusconnect.presentation.HomeScreen
 import com.kharisma.campusconnect.ui.theme.CampusConnectTheme
-import com.kharisma.campusconnect.ui.HomeScreen
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-    private val repository = CourseRepositoryImpl()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             CampusConnectTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    HomeScreen(
-                        daftarMK = repository.getAllCourses(),
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                    HomeScreen(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
