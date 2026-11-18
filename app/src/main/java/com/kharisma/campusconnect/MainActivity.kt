@@ -7,9 +7,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.kharisma.campusconnect.presentation.HomeScreen
+import com.kharisma.campusconnect.presentation.AppNavigation
 import com.kharisma.campusconnect.ui.theme.CampusConnectTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -21,7 +20,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             CampusConnectTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    HomeScreen(modifier = Modifier.padding(innerPadding))
+                    AppNavigation(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
